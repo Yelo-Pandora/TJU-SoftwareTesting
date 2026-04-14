@@ -1,0 +1,3 @@
+[submodule "Assignment 01/codebases/realworld/implementations/golang-gin"]
+	path = Assignment 01/codebases/realworld/implementations/golang-gin
+	url = https://github.com/gothinkster/golang-gin-realworld-example-app.git
