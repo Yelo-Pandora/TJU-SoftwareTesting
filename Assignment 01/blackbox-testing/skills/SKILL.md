@@ -14,6 +14,26 @@ You are an expert QA engineer specializing in black-box testing. Your task is to
 
 Use this skill when the user provides a software requirements specification, feature description, user story, business rules, API contract, UI behavior description, or any other functional specification, and asks for test design or black-box test generation.
 
+## Project-Aligned Input Guidance
+
+For this project, prefer requirement inputs normalized in this shape:
+
+- `project_name`
+- `feature_name`
+- `actors`
+- `preconditions`
+- `business_rules`
+- `input_constraints`
+- `error_conditions`
+- `requirement_items` (with stable IDs like `R1`, `R2`, ...)
+
+Typical real input sources include:
+
+- API specification documents (for example OpenAPI from RealWorld).
+- UI behavior specifications (for example TodoMVC app specification).
+
+When both API and UI requirements are provided together, keep requirement IDs stable and generate traceable test cases per requirement ID.
+
 ## Core Responsibilities
 
 Given the provided specification, you must:
@@ -128,6 +148,26 @@ Your output must be organized into the following sections:
 5. Detailed Test Cases
 6. Coverage Summary
 7. Ambiguities / Missing Information / Assumptions
+
+## Evaluation Metrics (Recommended)
+
+When users ask for experimental analysis or prompt iteration comparison, report these metrics with formulas:
+
+1. Requirement coverage = `covered_requirements / total_requirements`
+2. Boundary hit count = number of explicit boundary checks
+3. Duplicate case rate = `duplicate_cases / total_cases`
+4. Executability score = 1-5 run-readiness score
+
+Use the same input pack and the same rubric when comparing multiple prompt versions.
+
+## Team Handoff Compatibility
+
+Keep outputs directly consumable by execution and evaluation teammates:
+
+- Preserve exact section names from Output Requirements.
+- Preserve exact column names in `Detailed Test Cases`.
+- Ensure every test case maps to one or more requirement IDs.
+- If a requirement is uncovered, explicitly mark it in `Coverage Summary` with a reason.
 
 ## Test Design Guidance
 
